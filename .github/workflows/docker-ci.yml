@@ -33,7 +33,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: ocker build --no-cache -t paruld/insurance_price:latest .
+      run: docker build --no-cache -t paruld/insurance_price:latest .
 
     - name: Push Docker image
       run: docker push paruld/insurance_price:latest
