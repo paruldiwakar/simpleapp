@@ -6,6 +6,10 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,7 +23,7 @@ jobs:
       with:
         python-version: "3.9"
 
-    - name: Install deps (optional)
+    - name: Install dependencies
       run: pip install -r requirements.txt
 
     - name: Log in to Docker Hub
@@ -29,9 +33,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: |
-        docker build -t paruld/tellmyage:latest .
+      run: docker build -t paruld/tellmyage:latest .
 
     - name: Push Docker image
-      run: |
-        docker push paruld/tellmyage:latest
+      run: docker push paruld/tellmyage:latest
