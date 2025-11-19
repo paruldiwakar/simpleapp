@@ -1,0 +1,5 @@
+streamlit
+scikit-learn
+matplotlib==3.10.7
+numpy
+seaborn

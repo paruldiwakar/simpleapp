@@ -1,0 +1,27 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Virtual Environment ---
+venv/
+env/
+.venv/
+
+# --- Jupyter / IPython ---
+.ipynb_checkpoints/
+
+# --- OS / Editor files ---
+.DS_Store
+Thumbs.db
+
+# --- Streamlit ---
+.streamlit/
+
+# Optional: If you generate logs
+logs/
+*.log
+
+# Optional: compiled cache from tools
+*.cache/
