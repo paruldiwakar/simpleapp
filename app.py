@@ -2,16 +2,12 @@ import streamlit as st
 import pickle
 import numpy as np
 import pandas as pd
+import os
 
 
-def get_version():
-    try:
-        with open("build_version.txt") as f:
-            return f.read().strip()
-    except:
-        return "Unknown"
+build_version = os.getenv("BUILD_VERSION", "unknown")
 
-st.sidebar.markdown(f"**Build Version:** {get_version()}")
+st.sidebar.markdown(f"**Build Version:** {build_version}")
 
 # -------------------------
 # Load model + scaler + features
