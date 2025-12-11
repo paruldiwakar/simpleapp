@@ -28,7 +28,12 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build --no-cache -t paruld/insurance_price:latest .
+      run: |
+          docker build \
+            --no-cache \
+            --build-arg GIT_SHA=${{ github.sha }} \
+            -t paruld/insurance_price:latest .
+      
 
     - name: Push Docker image
       run: docker push paruld/insurance_price:latest

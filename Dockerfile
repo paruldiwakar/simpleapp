@@ -2,8 +2,12 @@ FROM python:3.9
 
 WORKDIR /app
 
-COPY . /app
-COPY build_version.txt /app/build_version.txt
+# Copy only code first
+COPY . .
+
+# Generate build_version.txt inside Docker image
+ARG GIT_SHA
+RUN echo $GIT_SHA > build_version.txt
 
 RUN pip3 install -r requirements.txt
 
