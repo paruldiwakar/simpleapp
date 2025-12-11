@@ -3,6 +3,16 @@ import pickle
 import numpy as np
 import pandas as pd
 
+
+def get_version():
+    try:
+        with open("build_version.txt") as f:
+            return f.read().strip()
+    except:
+        return "Unknown"
+
+st.sidebar.markdown(f"**Build Version:** {get_version()}")
+
 # -------------------------
 # Load model + scaler + features
 # -------------------------
@@ -13,7 +23,7 @@ model = model_dict["model"]          # Ridge model
 scaler = model_dict["scaler"]        # StandardScaler
 feature_names = model_dict["feature_names"]  # List of features
 
-st.title("Insurance Cost Prediction (Hello!)")
+st.title("Insurance Cost Prediction")
 
 age = st.number_input("Age", min_value=18, max_value=100)
 bmi = st.number_input("BMI", min_value=10.0, max_value=60.0)
