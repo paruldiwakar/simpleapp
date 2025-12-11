@@ -8,4 +8,5 @@ RUN pip3 install -r requirements.txt
 
 EXPOSE 8501
 
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Use Render's dynamically assigned port
+CMD streamlit run app.py --server.port $PORT --server.address=0.0.0.0 --server.enableCORS false
