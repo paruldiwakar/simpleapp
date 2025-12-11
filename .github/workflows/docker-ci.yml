@@ -26,6 +26,15 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
+    - name: Create version file
+      run: echo "VERSION=$(date +'%Y.%m.%d.%H%M')-${{ github.sha }}" > version.env
+
+    - name: Load version variable
+      id: load_version
+      run: |
+        source version.env
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
@@ -33,7 +42,15 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build --no-cache -t paruld/insurance_price:latest .
+      run: |
+        docker build \
+          --no-cache \
+          --build-arg VERSION=${{ env.VERSION }} \
+          -t paruld/insurance_price:latest .
 
     - name: Push Docker image
       run: docker push paruld/insurance_price:latest
+
+
+    
+
