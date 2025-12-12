@@ -5,7 +5,7 @@ import pandas as pd
 import os
 
 
-build_version = os.getenv("BUILD_VERSION", "unknown")
+build_version = os.getenv("BUILD_VERSION")
 
 # fallback: read from file in container
 if build_version in ["", "unknown"]:
