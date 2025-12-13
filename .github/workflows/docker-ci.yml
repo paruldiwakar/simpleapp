@@ -30,7 +30,7 @@ jobs:
     - name: Build Docker image
       run:  |
         docker build \
-        --build-arg BUILD_ID=${{ github.run_id }} \
+        --build-arg BUILD_ID=${{ github.sha }} \
         -t paruld/insurance_price:latest .
         
 
