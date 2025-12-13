@@ -4,19 +4,6 @@ import numpy as np
 import pandas as pd
 import os
 
-
-build_version = os.getenv("BUILD_VERSION")
-
-# fallback: read from file in container
-if build_version in ["", "unknown"]:
-    try:
-        with open("build_version.txt") as f:
-            build_version = f.read().strip()
-    except:
-        pass
-
-st.sidebar.markdown(f"**Build Version:** {build_version}")
-
 # -------------------------
 # Load model + scaler + features
 # -------------------------

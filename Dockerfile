@@ -6,8 +6,6 @@ WORKDIR /app
 COPY . .
 
 # Pass the commit SHA to Docker
-ARG GIT_SHA
-ENV BUILD_VERSION=$GIT_SHA
 
 RUN pip3 install -r requirements.txt
 
