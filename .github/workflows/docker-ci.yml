@@ -29,9 +29,7 @@ jobs:
 
     - name: Build Docker image
       run:  |
-        docker build \
-        --build-arg BUILD_ID=${{ github.sha }} \
-        -t paruld/insurance_price:latest .
+        docker build -t paruld/insurance_price:latest .
         
 
     - name: Push Docker image

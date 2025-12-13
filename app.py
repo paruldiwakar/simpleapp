@@ -4,10 +4,6 @@ import numpy as np
 import pandas as pd
 import os
 
-build_id = os.getenv("BUILD_ID")
-st.sidebar.markdown("----")
-st.sidebar.caption(f"🛠 Build ID: {build_id}")
-
 # -------------------------
 # Load model + scaler + features
 # -------------------------
