@@ -3,6 +3,17 @@ import pickle
 import numpy as np
 import pandas as pd
 import os
+import uuid
+
+def get_build_id():
+    build_id = os.getenv("BUILD_ID")
+    if build_id:
+        return build_id
+    # runtime-generated fallback (local only)
+    return f"dev-{uuid.uuid4().hex[:8]}"
+
+st.sidebar.markdown("---")
+st.sidebar.caption(f"🛠 Build ID: {get_build_id()}")
 
 # -------------------------
 # Load model + scaler + features
