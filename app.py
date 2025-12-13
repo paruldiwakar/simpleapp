@@ -18,7 +18,7 @@ model = model_dict["model"]          # Ridge model
 scaler = model_dict["scaler"]        # StandardScaler
 feature_names = model_dict["feature_names"]  # List of features
 
-st.title("Insurance Cost Prediction 🙌🏼")
+st.title("Welcome! Insurance Cost Prediction ")
 
 age = st.number_input("Age", min_value=18, max_value=100)
 bmi = st.number_input("BMI", min_value=10.0, max_value=60.0)
